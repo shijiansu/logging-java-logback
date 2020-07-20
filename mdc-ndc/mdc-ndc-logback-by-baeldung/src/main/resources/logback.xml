@@ -1,0 +1,39 @@
+<configuration>
+  <appender name="ConsoleAppender" class="ch.qos.logback.core.ConsoleAppender">
+    <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+      <pattern>
+        %-4r [%t] %5p %c{1} - %m%n
+      </pattern>
+    </encoder>
+  </appender>
+  <!-- %-25.25logger{25} -->
+  <!-- Logback will pad the values with spaces if they are shorter than 25 characters
+  and truncate them from the start if they are longer than 25 characters. -->
+  <!-- - means Right pad. -->
+  <!-- {25} is for Conversion Word length, if longer it converts to meaningful abbreviation. -->
+  <!-- https://logback.qos.ch/manual/layouts.html -->
+  <appender name="ConsoleAppenderMdc" class="ch.qos.logback.core.ConsoleAppender">
+    <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+      <pattern>
+        %-4r [%-15t] %5p | MDC: tx.id = %-10X{transaction.id} tx.owner = %-10X{transaction.owner} | %-30c{1} - %m%n
+      </pattern>
+    </encoder>
+  </appender>
+
+  <appender name="AsyncConsoleAppender" class="ch.qos.logback.classic.AsyncAppender">
+    <appender-ref ref="ConsoleAppender" />
+  </appender>
+
+  <appender name="AsyncConsoleAppenderMdc" class="ch.qos.logback.classic.AsyncAppender">
+    <appender-ref ref="ConsoleAppenderMdc" />
+  </appender>
+
+  <root level="INFO">
+    <appender-ref ref="AsyncConsoleAppender"/>
+  </root>
+
+  <logger name="com.baeldung.mdc_and_ndc" level="TRACE" additivity="false">
+    <appender-ref ref="AsyncConsoleAppenderMdc"/>
+  </logger>
+
+</configuration>

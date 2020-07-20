@@ -1,0 +1,24 @@
+<configuration>
+  <appender class="ch.qos.logback.core.rolling.RollingFileAppender" name="FILE">
+    <encoder>
+      <pattern>%-4relative [%thread] %-5level %logger{35} - %msg%n</pattern>
+    </encoder>
+    <file>log-test-file.log</file>
+
+    <!-- For example, using MyLogFile%i.log associated
+         with minimum and maximum values of 1 and 3 will produce archive files
+         named MyLogFile1.log, MyLogFile2.log and MyLogFile3.log. -->
+    <rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
+      <fileNamePattern>log-test-file.%i.log.zip</fileNamePattern>
+      <maxIndex>3</maxIndex>
+      <minIndex>1</minIndex>
+    </rollingPolicy>
+    <triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+      <maxFileSize>5MB</maxFileSize>
+    </triggeringPolicy>
+  </appender>
+
+  <root level="DEBUG">
+    <appender-ref ref="FILE"/>
+  </root>
+</configuration>

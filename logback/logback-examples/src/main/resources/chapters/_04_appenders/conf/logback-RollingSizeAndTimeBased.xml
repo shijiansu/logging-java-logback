@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+  <!-- same as set configuration debug = true -->
+  <statusListener class="ch.qos.logback.core.status.OnConsoleStatusListener"/>
+
+  <appender class="ch.qos.logback.core.rolling.RollingFileAppender" name="ROLLING">
+    <encoder>
+      <pattern>%msg%n</pattern>
+    </encoder>
+    <file>log-size-time.log</file>
+
+    <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+      <!-- rollover daily -->
+      <fileNamePattern>log-size-time-%d{yyyy-MM-dd'T'HHmmss}.%i.log</fileNamePattern>
+      <maxFileSize>100</maxFileSize>
+      <maxHistory>2</maxHistory>
+      <totalSizeCap>200</totalSizeCap>
+    </rollingPolicy>
+  </appender>
+
+  <root level="DEBUG">
+    <appender-ref ref="ROLLING"/>
+  </root>
+</configuration>

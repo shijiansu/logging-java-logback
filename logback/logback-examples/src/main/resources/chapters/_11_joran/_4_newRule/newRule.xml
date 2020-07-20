@@ -1,0 +1,22 @@
+<!-- 
+  This file is intended to be executed by NewRuleCalculator. 
+	Note that the rules for adding and multiplying are learned on 
+  the fly, while parsingthis file.
+-->
+<computation name="toto">
+  <computation>
+    <add/>
+    <literal value="3"/>
+    <literal value="7"/>
+  </computation>
+  <literal value="3"/>
+  <multiply/>
+
+  <new-rule actionClass="chapters._11_joran._2_calculator.LiteralAction"
+    pattern="*/computation/literal"/>
+
+  <new-rule actionClass="chapters._11_joran._2_calculator.AddAction"
+    pattern="*/computation/add"/>
+  <new-rule actionClass="chapters._11_joran._2_calculator.MultiplyAction"
+    pattern="*/computation/multiply"/>
+</computation>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- ==================================================================== -->
+<!-- Sample SocketReceiver configuration.                                 -->
+<!-- ==================================================================== -->
+<configuration debug="true">
+  <appender class="ch.qos.logback.core.ConsoleAppender" name="CONSOLE">
+    <encoder>
+      <pattern>%date %-5level [%thread] %logger - %message%n</pattern>
+    </encoder>
+  </appender>
+
+  <receiver class="ch.qos.logback.classic.net.SocketReceiver">
+    <host>${host}</host>
+    <port>${port}</port>
+    <reconnectionDelay>10000</reconnectionDelay>
+  </receiver>
+
+  <root level="DEBUG">
+    <appender-ref ref="CONSOLE"/>
+  </root>
+</configuration>

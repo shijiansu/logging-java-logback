@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<configuration>
+  <appender class="ch.qos.logback.core.ConsoleAppender" name="STDOUT">
+    <encoder>
+      <Pattern>%d %contextName [%t] %level %logger{36} - %msg%n</Pattern>
+    </encoder>
+  </appender>
+  <!-- Setting the context name - once set, logger context name cannot be changed -->
+  <contextName>myAppName</contextName>
+  <root level="debug">
+    <appender-ref ref="STDOUT"/>
+  </root>
+</configuration>

@@ -1,0 +1,23 @@
+<configuration>
+  <appender class="ch.qos.logback.classic.sift.SiftingAppender" name="SIFT">
+    <!-- MDC key = userid-->
+    <discriminator>
+      <defaultValue>unknown</defaultValue>
+      <key>userid</key>
+    </discriminator>
+    <sift>
+      <appender class="ch.qos.logback.core.FileAppender" name="FILE-${userid}">
+        <append>false</append>s
+        <!-- do not know why logging outside of this project -->
+        <file>log-${userid}.log</file>
+        <layout class="ch.qos.logback.classic.PatternLayout">
+          <pattern>%d [%thread] %level %mdc %logger{35} - %msg%n</pattern>
+        </layout>
+      </appender>
+    </sift>
+  </appender>
+
+  <root level="DEBUG">
+    <appender-ref ref="SIFT"/>
+  </root>
+</configuration>

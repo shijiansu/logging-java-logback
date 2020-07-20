@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<configuration>
+  <appender class="ch.qos.logback.classic.db.DBAppender" name="DB">
+    <connectionSource class="ch.qos.logback.core.db.DataSourceConnectionSource">
+      <dataSource class="com.mchange.v2.c3p0.ComboPooledDataSource">
+        <driverClass>com.mysql.jdbc.Driver</driverClass>
+        <jdbcUrl>jdbc:mysql://localhost:3306/logbackdb</jdbcUrl>
+        <password>logback</password>
+        <user>logback</user>
+      </dataSource>
+    </connectionSource>
+  </appender>
+
+  <root level="DEBUG">
+    <appender-ref ref="DB"/>
+  </root>
+</configuration>

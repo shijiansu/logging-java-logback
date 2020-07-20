@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<configuration>
+  <appender class="ch.qos.logback.core.FileAppender" name="FILE">
+    <encoder>
+      <pattern>%msg%n</pattern>
+    </encoder>
+    <file>/opt/${noteId}/myApp.log</file>
+  </appender>
+
+  <!-- Scopes -->
+  <!-- During substitution, -->
+  <!-- properties are looked up in the local scope first, -->
+  <!-- in the context scope second, -->
+  <!-- in the system properties scope third, -->
+  <!-- and in the OS environment fourth and last. -->
+  <!-- default value: ${aName:-golden} -->
+  <property name="nodeId" scope="context" value="firstNode"/>
+  <root level="debug">
+    <appender-ref ref="FILE"/>
+  </root>
+</configuration>

@@ -1,0 +1,22 @@
+<configuration>
+
+  <appender class="ch.qos.logback.access.sift.SiftingAppender"
+    name="SIFTING">
+    <Discriminator>
+      <AdditionalKey>username</AdditionalKey>
+      <DefaultValue>NA</DefaultValue>
+      <FieldName>SESSION_ATTRIBUTE</FieldName>
+      <Key>id</Key>
+    </Discriminator>
+    <sift>
+      <appender class="ch.qos.logback.core.FileAppender" name="${id}">
+        <File>byUser/${id}.log</File>
+        <layout class="ch.qos.logback.access.PatternLayout">
+          <Pattern>%h %l %u %t \"%r\" %s %b</Pattern>
+        </layout>
+      </appender>
+    </sift>
+  </appender>
+
+  <appender-ref ref="SIFTING"/>
+</configuration>

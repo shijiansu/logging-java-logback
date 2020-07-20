@@ -1,0 +1,24 @@
+<configuration>
+  <appender class="ch.qos.logback.classic.net.SMTPAppender" name="EMAIL">
+    <SMTPHost>ADDRESS-OF-YOUR-SMTP-HOST</SMTPHost>
+    <discriminator class="ch.qos.logback.classic.sift.MDCBasedDiscriminator">
+      <defaultValue>default</defaultValue>
+      <key>req.remoteHost</key>
+    </discriminator>
+    <from>SENDER-EMAIL</from>
+
+    <layout class="ch.qos.logback.classic.html.HTMLLayout">
+      <pattern>
+        %date%level%thread%X{req.remoteHost}%X{req.requestURL}%X{req.queryString}%logger%msg
+      </pattern>
+    </layout>
+
+    <subject>${HOSTNAME} -- %X{req.remoteHost} %msg"</subject>
+    <to>EMAIL-DESTINATION</to>
+  </appender>
+
+  <root>
+    <appender-ref ref="EMAIL"/>
+    <level level="DEBUG"/>
+  </root>
+</configuration>

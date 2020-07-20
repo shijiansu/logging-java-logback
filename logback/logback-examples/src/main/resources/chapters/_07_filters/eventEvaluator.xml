@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration debug="true">
+    <appender class="ch.qos.logback.core.ConsoleAppender" name="STDOUT">
+        <filter class="ch.qos.logback.core.filter.EvaluatorFilter">
+            <OnMatch>NEUTRAL</OnMatch>
+            <OnMismatch>DENY</OnMismatch>
+            <evaluator><!-- defaults to type ch.qos.logback.classic.boolex.JaninoEventEvaluator -->
+                <expression>message.contains("billing")</expression>
+                <!-- Evaluation expressions can be Java blocks. For example, the following is a valid expression -->
+                <!-- <expression>-->
+                <!--   if(logger.startsWith("org.apache.http"))-->
+                <!--     return true;-->
+                <!--   if(mdc == null || mdc.get("entity") == null)-->
+                <!--     return false;-->
+                <!--   String payee = (String) mdc.get("entity");-->
+                <!--   if(logger.equals("org.apache.http.wire") &amp;&amp;-->
+                <!--     payee.contains("someSpecialValue") &amp;&amp;-->
+                <!--     !message.contains("someSecret")) {-->
+                <!--     return true;-->
+                <!--   }-->
+                <!--   return false;-->
+                <!-- </expression>-->
+            </evaluator>
+        </filter>
+        <layout>
+            <pattern>%-4relative [%thread] %-5level %logger - %msg%n</pattern>
+        </layout>
+    </appender>
+
+    <root level="DEBUG">
+        <appender-ref ref="STDOUT"/>
+    </root>
+</configuration>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE computation>
+<computation name="toto">
+  <add/>
+  <literal value="3"/>
+  <literal value="7"/>
+  <literal value="3"/>
+  <multiply/>
+</computation>

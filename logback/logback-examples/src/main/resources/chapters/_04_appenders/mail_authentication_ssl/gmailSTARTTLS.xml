@@ -1,0 +1,21 @@
+<configuration>
+  <appender class="ch.qos.logback.classic.net.SMTPAppender" name="EMAIL">
+    <From>YOUR_USERNAME@gmail.com</From>
+    <Password>YOUR_GMAIL_PASSWORD</Password>
+    <SMTPHost>smtp.gmail.com</SMTPHost>
+    <SMTPPort>587</SMTPPort>
+    <STARTTLS>true</STARTTLS>
+
+    <Subject>TESTING: %logger{20} - %m</Subject>
+    <To>EMAIL-DESTINATION</To> <!-- additional destinations are possible -->
+    <To>ANOTHER_EMAIL_DESTINATION</To>
+    <Username>YOUR_USERNAME@gmail.com</Username>
+    <layout class="ch.qos.logback.classic.PatternLayout">
+      <Pattern>%date %-5level %logger - %message%n</Pattern>
+    </layout>
+  </appender>
+
+  <root level="debug">
+    <appender-ref ref="EMAIL"/>
+  </root>
+</configuration>

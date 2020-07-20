@@ -1,0 +1,17 @@
+<configuration>
+  <!-- this one must before appender, as the variable of "nanos" does not define yet -->
+  <conversionRule
+    conversionWord="nanos"
+    converterClass="chapters._06_layouts._6_CustomizedSampleConverter"/>
+
+  <appender class="ch.qos.logback.core.ConsoleAppender" name="STDOUT">
+    <encoder>
+      <!-- nanos here using the conversionRule -->
+      <pattern>%-6nanos [%thread] %level - %msg%n</pattern>
+    </encoder>
+  </appender>
+
+  <root level="DEBUG">
+    <appender-ref ref="STDOUT"/>
+  </root>
+</configuration>

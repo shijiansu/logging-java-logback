@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- ============================================================= -->
+<!-- Sample SMTPAppender configuration using the HTMLLayout and a  -->
+<!-- custom triggering policy.                                     -->
+<!-- ============================================================= -->
+<configuration>
+  <appender class="ch.qos.logback.classic.net.SMTPAppender" name="EMAIL">
+    <Evaluator class="chapters._04_appenders.mail_trggering_event.CounterBasedEvaluator"/>
+    <From>${from}</From>
+    <SMTPHost>${smtpHost}</SMTPHost>
+    <To>${to}</To>
+    <layout class="ch.qos.logback.classic.html.HTMLLayout"/>
+    <subject>%logger{20} - %m</subject>
+  </appender>
+
+  <root>
+    <appender-ref ref="EMAIL"/>
+    <level value="debug"/>
+  </root>
+</configuration>

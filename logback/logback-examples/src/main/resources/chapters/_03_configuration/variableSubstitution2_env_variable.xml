@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<configuration>
+  <appender class="ch.qos.logback.core.FileAppender" name="FILE">
+    <encoder>
+      <pattern>%msg%n</pattern>
+    </encoder>
+    <!-- java -DUSER_HOME="/home/sebastien" MyApp2 -->
+    <file>${USER_HOME}/myApp.log</file>
+  </appender>
+
+  <root level="debug">
+    <appender-ref ref="FILE"/>
+  </root>
+</configuration>

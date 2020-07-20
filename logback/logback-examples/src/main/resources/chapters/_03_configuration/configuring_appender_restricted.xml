@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<configuration>
+  <appender class="ch.qos.logback.core.FileAppender" name="FILE">
+    <encoder>
+      <pattern>%date %level [%thread] %logger{10} [%file:%line] %msg%n</pattern>
+    </encoder>
+    <!-- encoders are assigned by default the type
+         ch.qos.logback.classic.encoder.PatternLayoutEncoder -->
+    <file>myApp.log</file>
+  </appender>
+
+  <appender class="ch.qos.logback.core.ConsoleAppender" name="STDOUT">
+    <encoder>
+      <pattern>%msg%n</pattern>
+    </encoder>
+  </appender>
+
+  <!-- because it is using different appender, so no duplicated log -->
+  <logger name="chapters._03_configuration">
+    <appender-ref ref="FILE"/>
+  </logger>
+
+  <root level="debug">
+    <appender-ref ref="STDOUT"/>
+  </root>
+</configuration>

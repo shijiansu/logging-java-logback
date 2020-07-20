@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+  <appender class="ch.qos.logback.core.ConsoleAppender" name="STDOUT">
+    <encoder>
+      <pattern>
+        %-4relative [%thread] %-5level %logger - %msg%n
+      </pattern>
+    </encoder>
+    <filter class="chapters._07_filters.CustomizedFilter"/>
+  </appender>
+
+  <root>
+    <appender-ref ref="STDOUT"/>
+  </root>
+</configuration>

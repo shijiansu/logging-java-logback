@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="INFO">
+  <!-- properties -->
+  <Properties>
+    <!-- %n enter -->
+    <Property name="NORMAL">
+      %-4r [%t] %5p - %c{1} - %m%n
+    </Property>
+    <Property name="MDC_AND_NDC">
+      %-4r [%-15t] %5p | MDC: tx.id = %-5X{transaction.id} tx.owner = %-10X{transaction.owner} | NDC: %-35x | %-20c{1} | %m%n
+    </Property>
+    <!-- https://logging.apache.org/log4j/2.x/manual/thread-context.html -->
+    <!-- Use %X{key} to include the specified key. -->
+    <Property name="MDC_ONLY">
+      %-4r [%t] %5p - tx.id = %X{transaction.id} tx.owner = %X{transaction.owner} - %c{1} - %m%n
+    </Property>
+    <Property name="NDC_ONLY">
+      %-4r [%t] %5p - %x - %c{1} - %m%n
+    </Property>
+  </Properties>
+
+  <!-- appender -->
+  <Appenders>
+    <Console name="ConsoleAppender" target="SYSTEM_OUT">
+      <PatternLayout>
+        <Pattern>${NORMAL}</Pattern>
+      </PatternLayout>
+    </Console>
+    <Console name="ConsoleAppenderMdc" target="SYSTEM_OUT">
+      <PatternLayout>
+        <Pattern>${MDC_AND_NDC}</Pattern>
+      </PatternLayout>
+    </Console>
+  </Appenders>
+
+  <!-- logger -->
+  <Loggers>
+    <!-- sync -->
+    <!-- <Root level="INFO">-->
+    <!--   <AppenderRef ref="ConsoleAppender"/>-->
+    <!-- </Root>-->
+    <!-- <Logger name="com.baeldung.mdc.log4j2" level="TRACE" additivity="false">-->
+    <!--   <AppenderRef ref="ConsoleAppenderMdc"/>-->
+    <!-- </Logger>-->
+
+    <!-- async -->
+    <AsyncRoot level="INFO">
+      <AppenderRef ref="ConsoleAppender"/>
+    </AsyncRoot>
+    <!-- additivity="false" -> do not apply for AsyncRoot -->
+    <AsyncLogger name="com.baeldung.mdc_and_ndc" level="TRACE" additivity="false">
+      <AppenderRef ref="ConsoleAppenderMdc"/>
+    </AsyncLogger>
+  </Loggers>
+</Configuration>

@@ -1,0 +1,16 @@
+<configuration>
+  <appender class="ch.qos.logback.core.FileAppender" name="FILE">
+    <encoder>
+      <pattern>%logger{35} - %msg%n</pattern>
+    </encoder>
+    <file>myapp.log</file>
+  </appender>
+
+  <appender class="ch.qos.logback.classic.AsyncAppender" name="ASYNC">
+    <appender-ref ref="FILE"/>
+  </appender>
+
+  <root level="DEBUG">
+    <appender-ref ref="ASYNC"/>
+  </root>
+</configuration>

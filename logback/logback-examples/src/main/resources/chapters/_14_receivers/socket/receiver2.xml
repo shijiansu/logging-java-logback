@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!-- ==================================================================== -->
+<!-- Sample SSLServerSocketReceiver configuration.                        -->
+<!-- ==================================================================== -->
+
+<configuration debug="true">
+
+  <appender class="ch.qos.logback.core.ConsoleAppender" name="CONSOLE">
+    <encoder>
+      <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger - %msg%n</pattern>
+    </encoder>
+  </appender>
+
+  <receiver class="ch.qos.logback.classic.net.server.SSLServerSocketReceiver">
+    <port>${port}</port>
+    <ssl>
+      <keyStore>
+        <location>${keystore}</location>
+        <password>${password}</password>
+      </keyStore>
+    </ssl>
+  </receiver>
+
+  <root level="DEBUG">
+    <appender-ref ref="CONSOLE"/>
+  </root>
+
+</configuration>
+
+
+

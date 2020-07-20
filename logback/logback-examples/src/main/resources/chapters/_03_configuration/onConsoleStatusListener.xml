@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<configuration debug="false">
+  <appender class="ch.qos.logback.core.ConsoleAppender" name="STDOUT">
+    <!-- encoders are assigned by default the type
+         ch.qos.logback.classic.encoder.PatternLayoutEncoder -->
+    <encoder>
+      <pattern>
+        %d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n
+      </pattern>
+    </encoder>
+  </appender>
+
+  <root level="debug">
+    <appender-ref ref="STDOUT"/>
+  </root>
+  <!-- setting debug="true" is strictly equivalent to installing an OnConsoleStatusListener -->
+  <statusListener class="ch.qos.logback.core.status.OnConsoleStatusListener"/>
+</configuration>

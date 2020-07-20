@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- WARNING -->
+<!-- WARNING BindDataSourceToJNDIAction is both untested and undocumented.  -->
+<!-- WARNING Just ignore this configuration file. -->
+<!-- WARNING -->
+<configuration>
+  <!-- We create a joran rule that will instance and bind the appropriate
+       data source instance to JNDI. -->
+  <appender class="ch.qos.logback.classic.db.DBAppender" name="DB">
+    <connectionSource class="ch.qos.logback.core.db.DataSourceConnectionSource">
+
+      <dataSource class="${dataSourceClass}">
+        <!-- Joran cannot handle element names which are variables themselves. In order to let  -->
+        <!-- the property name vary, we use the <param> element.-->
+        <databaseName>${databaseName}</databaseName>
+        <param name="${url-key:-url}" value="${url}"/>
+        <serverName>${serverName}</serverName>
+      </dataSource>
+
+      <password>${password}</password>
+      <user>${user}</user>>
+    </connectionSource>
+  </appender>
+
+  <bindDataSourceToJNDI/>
+
+  <newRule actionClass="ch.qos.logback.core.db.BindDataSourceToJNDIAction"
+    pattern="configuration/bindDataSourceToJNDI"/>
+
+  <root>
+    <appender-ref ref="DB"/>
+    <level value="debug"/>
+  </root>
+</configuration>

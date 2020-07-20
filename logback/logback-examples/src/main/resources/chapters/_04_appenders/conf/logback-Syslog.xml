@@ -1,0 +1,14 @@
+<configuration>
+  <!-- sends a small message to a syslog receiver.
+       The receiver is commonly called syslog daemon or syslog server.
+       Logback can send messages to a remote syslog daemon. -->
+  <appender class="ch.qos.logback.classic.net.SyslogAppender" name="SYSLOG">
+    <facility>${facility}</facility>
+    <suffixPattern>%-4relative [%thread] %-5level - %msg</suffixPattern>
+    <syslogHost>${syslogHost}</syslogHost>
+  </appender>
+
+  <root level="DEBUG">
+    <appender-ref ref="SYSLOG"/>
+  </root>
+</configuration>

@@ -1,0 +1,14 @@
+<configuration>
+  <appender class="ch.qos.logback.core.FileAppender" name="FILE">
+    <encoder class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">
+      <layout class="ch.qos.logback.classic.log4j.XMLLayout">
+        <locationInfo>true</locationInfo>
+      </layout>
+    </encoder>
+    <file>log-test.xml</file>
+  </appender>
+
+  <root level="DEBUG">
+    <appender-ref ref="FILE"/>
+  </root>
+</configuration> 
