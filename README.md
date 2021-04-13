@@ -1,16 +1,15 @@
-![](https://img.shields.io/badge/language-xxx-blue)
-![](https://img.shields.io/badge/technology-xxx,%20xxx-blue)
+![](https://img.shields.io/badge/language-java-blue)
+![](https://img.shields.io/badge/technology-log4j,%20logback,%20mdc,%20ndc-blue)
 ![](https://img.shields.io/badge/development%20year-2020-orange)
 ![](https://img.shields.io/badge/contributor-shijian%20su-purple)
 ![](https://img.shields.io/badge/license-MIT-lightgrey)
 
-![](https://img.shields.io/github/languages/top/shijiansu/)
-![](https://img.shields.io/github/languages/count/shijiansu/)
-![](https://img.shields.io/github/languages/code-size/shijiansu/)
-![](https://img.shields.io/github/repo-size/shijiansu/)
-![](https://img.shields.io/github/last-commit/shijiansu/?color=red)
-
-![](https://github.com/shijiansu//workflows/ci%20build/badge.svg)
+![](https://img.shields.io/github/languages/top/shijiansu/logging-java)
+![](https://img.shields.io/github/languages/count/shijiansu/logging-java)
+![](https://img.shields.io/github/languages/code-size/shijiansu/logging-java)
+![](https://img.shields.io/github/repo-size/shijiansu/logging-java)
+![](https://img.shields.io/github/last-commit/shijiansu/logging-java?color=red)
+![](https://github.com/shijiansu/logging-java/workflows/ci%20build/badge.svg)
 
 --------------------------------------------------------------------------------
 
