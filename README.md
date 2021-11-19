@@ -1,14 +1,6 @@
-# logging-java-logback
-
 ![](https://img.shields.io/badge/language-java-blue)
 ![](https://img.shields.io/badge/technology-logback,%20mdc,%20ndc-blue)
 ![](https://img.shields.io/badge/development%20year-2020-orange)
-
-![](https://img.shields.io/github/languages/top/shijiansu/logging-java)
-![](https://img.shields.io/github/languages/count/shijiansu/logging-java)
-![](https://img.shields.io/github/languages/code-size/shijiansu/logging-java)
-![](https://img.shields.io/github/repo-size/shijiansu/logging-java)
-![](https://img.shields.io/github/last-commit/shijiansu/logging-java?color=red)
 
 ## Outline
 
